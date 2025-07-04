@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User } from 'lucide-react';
 
@@ -53,7 +52,7 @@ const ChatInterface = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:pr92OYzD/open_ai/', {
+      const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:pr92OYzD/open_ai', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
