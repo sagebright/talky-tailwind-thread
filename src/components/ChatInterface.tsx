@@ -116,18 +116,18 @@ const ChatInterface = () => {
         throw new Error('Received invalid response format from the AI service.');
       }
 
-      // Extract the assistant's message from the correct path
+      // Extract the assistant's message from the flat response
       let assistantText;
       try {
-        assistantText = data.result?.output?.[0]?.content?.[0]?.text;
-        console.log('🎯 Extracted text from data.result.output[0].content[0].text:', assistantText);
+        assistantText = data.message;
+        console.log('🎯 Assistant text (from data.message):', assistantText);
       } catch (extractionError) {
-        console.error('❌ Error extracting text from response path:', extractionError);
+        console.error('❌ Error extracting text from response:', extractionError);
         console.log('Available response structure:', data);
       }
       
       if (!assistantText) {
-        console.warn('⚠️ No text found at data.result.output[0].content[0].text');
+        console.warn('⚠️ No text found at data.message');
         console.log('Available fields:', Object.keys(data));
         console.log('Full response object:', data);
       }
